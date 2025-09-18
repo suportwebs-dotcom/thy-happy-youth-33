@@ -120,16 +120,16 @@ export const QuickAssessmentSection = () => {
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Clock className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-3 text-muted-foreground animate-fade-in hover:scale-105 transition-transform duration-300">
+                <Clock className="w-5 h-5 text-primary animate-pulse" />
                 <span>2 minutos</span>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Users className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-3 text-muted-foreground animate-fade-in hover:scale-105 transition-transform duration-300" style={{ animationDelay: '0.1s' }}>
+                <Users className="w-5 h-5 text-primary animate-pulse" style={{ animationDelay: '0.2s' }} />
                 <span>+50.000 testes realizados</span>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <TrendingUp className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-3 text-muted-foreground animate-fade-in hover:scale-105 transition-transform duration-300" style={{ animationDelay: '0.2s' }}>
+                <TrendingUp className="w-5 h-5 text-primary animate-pulse" style={{ animationDelay: '0.4s' }} />
                 <span>Resultado personalizado</span>
               </div>
             </div>
@@ -137,7 +137,7 @@ export const QuickAssessmentSection = () => {
             <Button 
               onClick={() => setStarted(true)}
               size="lg"
-              className="bg-gradient-primary hover:opacity-90 text-white px-8"
+              className="bg-gradient-primary hover:opacity-90 text-white px-8 hover:scale-105 transition-all duration-300 animate-bounce-in"
             >
               Iniciar Teste de Nível
             </Button>
@@ -156,9 +156,9 @@ export const QuickAssessmentSection = () => {
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <Card className={`${levelInfo.bgColor} border-2`}>
+            <Card className={`${levelInfo.bgColor} border-2 animate-scale-in`}>
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce-in">
                   <CheckCircle className="w-8 h-8 text-white" />
                 </div>
                 <CardTitle className="text-2xl mb-2">
@@ -223,7 +223,7 @@ export const QuickAssessmentSection = () => {
             <Progress value={progress} className="h-2" />
           </div>
 
-          <Card>
+          <Card className="animate-scale-in">
             <CardHeader>
               <CardTitle className="text-xl">
                 {question.question}
@@ -235,7 +235,8 @@ export const QuickAssessmentSection = () => {
                   <Button
                     key={index}
                     variant="outline"
-                    className="text-left justify-start p-4 h-auto hover:bg-primary/5 hover:border-primary transition-smooth"
+                    className="text-left justify-start p-4 h-auto hover:bg-primary/5 hover:border-primary transition-all duration-300 hover:scale-105 animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                     onClick={() => handleAnswer(index)}
                     disabled={selectedAnswers[currentQuestion] !== undefined}
                   >

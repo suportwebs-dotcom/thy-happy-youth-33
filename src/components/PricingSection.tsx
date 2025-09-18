@@ -142,17 +142,18 @@ export const PricingSection = () => {
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`relative hover:shadow-elevated transition-smooth ${
+              className={`relative hover:shadow-elevated hover:-translate-y-3 transition-all duration-500 group animate-fade-in ${
                 plan.popular 
-                  ? 'border-2 border-primary shadow-primary scale-105' 
+                  ? 'border-2 border-primary shadow-primary scale-105 animate-glow' 
                   : isCurrentPlan(plan.name)
                   ? 'border-2 border-secondary shadow-secondary'
                   : 'border border-border hover:border-primary/50'
               }`}
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
               {plan.badge && !isCurrentPlan(plan.name) && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-hero text-white px-4 py-1">
+                  <Badge className="bg-gradient-hero text-white px-4 py-1 animate-bounce-in group-hover:animate-pulse">
                     <Star className="w-3 h-3 mr-1" />
                     {plan.badge}
                   </Badge>
@@ -161,7 +162,7 @@ export const PricingSection = () => {
               
               {isCurrentPlan(plan.name) && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-secondary text-white px-4 py-1">
+                  <Badge className="bg-gradient-secondary text-white px-4 py-1 animate-bounce-in">
                     <Check className="w-3 h-3 mr-1" />
                     Seu Plano
                   </Badge>
@@ -169,18 +170,18 @@ export const PricingSection = () => {
               )}
 
               <CardHeader className="text-center space-y-4 pt-8">
-                <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                <CardTitle className="text-2xl group-hover:text-primary transition-colors duration-300">{plan.name}</CardTitle>
                 <div className="space-y-2">
                   <div className="flex items-baseline justify-center gap-1">
                     {(plan as any).originalPrice && (
-                      <span className="text-lg text-muted-foreground line-through mr-2">
+                      <span className="text-lg text-muted-foreground line-through mr-2 group-hover:animate-shake">
                         {(plan as any).originalPrice}
                       </span>
                     )}
-                    <span className="text-4xl font-bold">{plan.price}</span>
+                    <span className="text-4xl font-bold group-hover:scale-110 transition-transform duration-300">{plan.price}</span>
                     <span className="text-muted-foreground">{plan.period}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                     {plan.description}
                   </p>
                 </div>
@@ -189,11 +190,11 @@ export const PricingSection = () => {
               <CardContent className="space-y-6">
                 <div className="space-y-3">
                   {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start gap-3">
-                      <div className="w-5 h-5 bg-gradient-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div key={featureIndex} className="flex items-start gap-3 group/feature hover:bg-primary/5 p-2 -m-2 rounded-lg transition-all duration-200">
+                      <div className="w-5 h-5 bg-gradient-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/feature:scale-110 transition-transform duration-200">
                         <Check className="w-3 h-3 text-white" />
                       </div>
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm group-hover/feature:text-primary transition-colors duration-200">{feature}</span>
                     </div>
                   ))}
                   
@@ -221,16 +222,16 @@ export const PricingSection = () => {
                     Gerenciar Assinatura
                   </Button>
                 ) : (
-                  <Button 
-                    variant={plan.buttonVariant} 
-                    className="w-full"
-                    size="lg"
-                    onClick={() => handlePlanSelect(plan)}
-                    disabled={loading || isCurrentPlan(plan.name)}
-                  >
-                    {plan.popular && <Zap className="w-4 h-4 mr-2" />}
-                    {isCurrentPlan(plan.name) ? 'Plano Atual' : plan.buttonText}
-                  </Button>
+                    <Button 
+                      variant={plan.buttonVariant} 
+                      className="w-full hover:scale-105 transition-all duration-300"
+                      size="lg"
+                      onClick={() => handlePlanSelect(plan)}
+                      disabled={loading || isCurrentPlan(plan.name)}
+                    >
+                      {plan.popular && <Zap className="w-4 h-4 mr-2 animate-bounce" />}
+                      {isCurrentPlan(plan.name) ? 'Plano Atual' : plan.buttonText}
+                    </Button>
                 )}
               </CardContent>
             </Card>
