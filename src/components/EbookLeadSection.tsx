@@ -123,18 +123,54 @@ const { toast } = useToast();
   return (
     <section className="py-16 px-4 bg-gradient-section-neutral" id="ebook">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 animate-fade-in">
           <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-full bg-primary/10">
-              <BookOpen className="w-12 h-12 text-primary" />
+            <div className="p-4 rounded-full bg-gradient-primary animate-pulse">
+              <BookOpen className="w-12 h-12 text-white animate-bounce" />
             </div>
           </div>
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
-            10 Erros Comuns de Aprendizado de Inglês e Como Evitá-los
+          
+          {/* Badge de destaque */}
+          <div className="inline-block mb-4">
+            <span className="bg-gradient-hero text-white px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-wide shadow-primary animate-glow">
+              📚 Guia Exclusivo Gratuito
+            </span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 relative animate-fade-in">
+            {/* Efeito de sombra colorida */}
+            <span className="absolute inset-0 bg-gradient-hero bg-clip-text text-transparent blur-sm opacity-50 scale-105">
+              10 Erros Comuns de Aprendizado de Inglês e Como Evitá-los
+            </span>
+            {/* Texto principal */}
+            <span className="relative bg-gradient-hero bg-clip-text text-transparent animate-glow">
+              10 Erros Comuns de Aprendizado de Inglês e Como Evitá-los
+            </span>
+            
+            {/* Elementos decorativos */}
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-orange rounded-full animate-bounce"></div>
+            <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-teal rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute top-1/2 -right-8 w-2 h-2 bg-green rounded-full animate-ping"></div>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            Melhore seu inglês de forma rápida e eficiente ao evitar esses erros comuns.
-          </p>
+          
+          {/* Subtítulo com destaque */}
+          <div className="relative max-w-3xl mx-auto mb-8">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed animate-fade-in" style={{ animationDelay: '0.3s' }}>
+              🚀 <span className="font-semibold text-primary">Transforme seu aprendizado</span> e evite os obstáculos que impedem 90% dos estudantes de alcançar a fluência
+            </p>
+            
+            {/* Linha decorativa */}
+            <div className="flex justify-center mt-6">
+              <div className="w-24 h-1 bg-gradient-hero rounded-full animate-pulse"></div>
+            </div>
+          </div>
+          
+          {/* Call to action visual */}
+          <div className="inline-flex items-center gap-2 bg-gradient-subtle px-6 py-3 rounded-full border-2 border-primary/20 animate-bounce-in" style={{ animationDelay: '0.6s' }}>
+            <Download className="w-5 h-5 text-primary animate-bounce" />
+            <span className="font-semibold text-primary">Download Instantâneo - 100% Gratuito</span>
+            <CheckCircle className="w-5 h-5 text-green" />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
