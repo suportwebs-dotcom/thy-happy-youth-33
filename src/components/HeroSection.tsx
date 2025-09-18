@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Play, Target, TrendingUp, Users } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "@/assets/hero-illustration.jpg";
+import heroImage from "@/assets/new-hero-illustration.jpg";
 
 export const HeroSection = () => {
   return (
@@ -61,7 +61,7 @@ export const HeroSection = () => {
             <div className="relative rounded-3xl overflow-hidden shadow-elevated hover:shadow-primary transition-all duration-500 hover:scale-[1.02]">
               <img 
                 src={heroImage} 
-                alt="Pessoa praticando conversação em inglês com confiança"
+                alt="Ilustração de aprendizado de inglês online com pessoa acenando, certificação e ferramentas de estudo"
                 className="w-full h-auto transition-transform duration-500 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-hero/10"></div>
